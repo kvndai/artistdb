@@ -1,8 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import Home from './components/Home';
+import Artist from './components/Artist';
+
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <div>
+        <Route exact path="/" component={Home}/>
+        <Route path="/artist/:id" component={Artist}/>
+      </div>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'))
